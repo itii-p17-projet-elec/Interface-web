@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
-import RestDataProvider from "./RestDataProvider";
+import DataProvider from "./DataProvider";
 
-class Dashboard extends Component {
+class DashboardLocal extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-         <RestDataProvider/>
+         <DataProvider/>
       </div>
       
     );
   }
 }
-export default Dashboard;
+export default DashboardLocal;

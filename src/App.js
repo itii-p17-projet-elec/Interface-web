@@ -4,6 +4,7 @@ import Accueil from "./components/Accueil";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Dashboard from "./components/Dashboard";
+import DashboardLocal from "./components/DashboardLocal";
 import "./App.scss";
 
 const loading = () => (
@@ -21,6 +22,7 @@ function App() {
             <Redirect exact from="/" to="Accueil"></Redirect>
             <Route exact path="/Accueil" component={Accueil} />
             <Route path="/dashboard" component = {Dashboard}/>
+            <Route path="/dashboard-local" component = {DashboardLocal}/>
           </Switch>
         </React.Suspense>
         <Footer/>

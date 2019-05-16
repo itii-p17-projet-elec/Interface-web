@@ -30,8 +30,8 @@ class NavBar extends Component {
   render() {
     return (
 
-        <Navbar color="light" light expand="md">
-          <Container>
+      <Navbar color="light" light expand="md">
+        <Container>
           <NavbarBrand>
             {" "}
             <img src={itii} alt="logo-itii" height="75" width="75" />
@@ -40,24 +40,29 @@ class NavBar extends Component {
             {" "}
             <img src={polytech} alt="logo-polytech" height="75" width="200" />
           </NavbarBrand>
-          </Container>
+        </Container>
 
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink to="/Accueil" tag={RRNavLink}>
-                  Accueil
+        <NavbarToggler onClick={this.toggle} />
+        <Collapse isOpen={this.state.isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink to="/Accueil" tag={RRNavLink}>
+                Accueil
                 </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/Dashboard" tag={RRNavLink}>
-                  Dashboard
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/dashboard" tag={RRNavLink}>
+                Dashboard
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink to="/dashboard-local" tag={RRNavLink}>
+                Dashboard (Local)
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
 
     );
   }
