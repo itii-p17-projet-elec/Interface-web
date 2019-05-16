@@ -6,10 +6,9 @@ import TemperatureBatterie from "./TemperatureBatterie";
 import ChargeBatterie from "./ChargeBatterie";
 import CourantCharge from "./CourantCharge";
 import CourantDecharge from "./CourantDecharge";
-import EnergieProduite from "./EnergieProduite";
+import CourantConsomation from "./CourantConsomation";
 import PuissanceSignal from "./PuissanceSignal";
 import TemperatureAmbiante from "./TemperatureAmbiante";
-import { nullLiteral } from "@babel/types";
 
 class RestDataProvider extends Component {
   state = {
@@ -19,7 +18,7 @@ class RestDataProvider extends Component {
     datasChargeBatterie: [],
     datasCourantCharge: [],
     datasCourantDecharge: [],
-    datasEnergieProduite: [],
+    datasCourantConsomation: [],
     datasPuissanceSignal: []
   };
   componentDidMount() {
@@ -70,7 +69,7 @@ class RestDataProvider extends Component {
           return ({
             id: data.id,
             TimeStamp: data.timestamp,
-            Value: data.currentConsuption
+            Value: data.currentCharge
           })
         });
         let currentDischarge = res.data.map(data => {
@@ -78,6 +77,13 @@ class RestDataProvider extends Component {
             id: data.id,
             TimeStamp: data.timestamp,
             Value: data.currentDischarge
+          })
+        });
+        let currentConsuption = res.data.map(data => {
+          return ({
+            id: data.id,
+            TimeStamp: data.timestamp,
+            Value: data.currentConsuption
           })
         });
         let powersSignal = res.data.map(data => {
@@ -96,7 +102,7 @@ class RestDataProvider extends Component {
           datasChargeBatterie: loadsBattery,
           datasCourantCharge: currentCharge,
           datasCourantDecharge: currentDischarge,
-          datasEnergieProduite: null,
+          datasCourantConsomation: currentConsuption,
           datasPuissanceSignal: powersSignal
         });
       });
@@ -110,7 +116,7 @@ class RestDataProvider extends Component {
         <ChargeBatterie datas={this.state.datasChargeBatterie} />
         <CourantCharge datas={this.state.datasCourantCharge} />
         <CourantDecharge datas={this.state.datasCourantDecharge} />
-        {/* <EnergieProduite datas={this.state.datasEnergieProduite} /> */}
+        <CourantConsomation datas={this.state.datasCourantConsomation} />
         <PuissanceSignal datas={this.state.datasPuissanceSignal} />
       </div>
     );
